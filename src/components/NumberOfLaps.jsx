@@ -1,5 +1,4 @@
-
-
+import "../styles/Components.scss";
 
 const NumberOfLaps = (props) => {
   return (

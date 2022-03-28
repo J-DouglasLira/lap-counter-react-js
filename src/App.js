@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AverageTime from "./components/AverageTime";
 import Button from "./components/Button";
 import NumberOfLaps from "./components/NumberOfLaps";
-import './styles/global.scss';
+import "./styles/Global.scss"
 
 
 
@@ -49,8 +49,8 @@ function App() {
         lapsNumber > 0 && 
         <AverageTime time={Math.round(time/lapsNumber)} />
       }
-      <Button text="Iniciar" onClick={toggleRunning} />
-      <Button text="Reiniciar" onClick = {reset}/>
+      <Button text="Start" onClick={toggleRunning} />
+      <Button text="Restart" onClick = {reset}/>
     </div>
   );
 }

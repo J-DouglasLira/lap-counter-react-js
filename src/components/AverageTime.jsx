@@ -1,3 +1,5 @@
+import "../styles/Components.scss";
+
 const AverageTime = (props) => {
   const time = props.time;
   const minutes = Math.round(time / 60);
