@@ -1,8 +1,11 @@
 
+
+
 const NumberOfLaps = (props) => {
   return (
-    <p >
-      {props.lapsNumber} <br />
+    <p className = "teste">
+      <span>{props.lapsNumber} <br />
+      </span>
       Laps
     </p>
   );

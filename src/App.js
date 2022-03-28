@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AverageTime from "./components/AverageTime";
 import Button from "./components/Button";
 import NumberOfLaps from "./components/NumberOfLaps";
+import './styles/global.scss';
 
 
 
