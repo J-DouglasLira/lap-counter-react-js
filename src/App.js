@@ -1,10 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AverageTime from "./components/AverageTime";
 import Button from "./components/Button";
 import NumberOfLaps from "./components/NumberOfLaps";
 
 function App() {
-  let [lapsNumber, setLapsNumber] = useState(20);
+  const [lapsNumber, setLapsNumber] = useState(0);
+  const [running, setRunning] = useState(false);
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    let timer = null;
+    if (running) {
+      timer = setInterval(() => {
+        setTime((old) => old + 1);
+      }, 1000);
+    }
+    return () => {
+      if (timer) {
+        clearInterval(timer);
+      }
+    };
+  }, [running]);
+
+  const toggleRunning = () => {
+    setRunning(!running);
+  };
 
   function increment() {
     setLapsNumber(lapsNumber + 1);
@@ -13,14 +33,21 @@ function App() {
   function decrement() {
     setLapsNumber(lapsNumber - 1);
   }
+  const reset = () =>{
+    setLapsNumber(0);
+    setTime(0);
+  }
   return (
-    <div>
-      <NumberOfLaps number={lapsNumber} />
+    <div>  
+      <NumberOfLaps lapsNumber={lapsNumber} />
       <Button text="+" onClick={increment} />
       <Button text="-" onClick={decrement} />
-      <AverageTime time="01:30" />
-      <Button text="Iniciar" />
-      <Button text="Reiniciar" />
+      {
+        lapsNumber > 0 && 
+        <AverageTime time={Math.round(time/lapsNumber)} />
+      }
+      <Button text="Iniciar" onClick={toggleRunning} />
+      <Button text="Reiniciar" onClick = {reset}/>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 const NumberOfLaps = (props) => {
   return (
     <p>
-      {props.number} <br />
+      {props.lapsNumber} <br />
       voltas
     </p>
   );
