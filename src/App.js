@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import AverageTime from "./components/AverageTime";
 import Button from "./components/Button";
 import NumberOfLaps from "./components/NumberOfLaps";
-import "./styles/Global.scss"
-
-
+import "./styles/Global.scss";
 
 function App() {
   const [lapsNumber, setLapsNumber] = useState(0);
@@ -34,23 +32,22 @@ function App() {
   }
 
   function decrement() {
-    setLapsNumber(lapsNumber - 1);
+    if (lapsNumber > 0) {
+      setLapsNumber(lapsNumber - 1);
+    }
   }
-  const reset = () =>{
+  const reset = () => {
     setLapsNumber(0);
     setTime(0);
-  }
+  };
   return (
-    <div>  
+    <div>
       <NumberOfLaps lapsNumber={lapsNumber} />
-      <Button text="+" onClick={increment} />
-      <Button text="-" onClick={decrement} />
-      {
-        lapsNumber > 0 && 
-        <AverageTime time={Math.round(time/lapsNumber)} />
-      }
-      <Button text="Start" onClick={toggleRunning} />
-      <Button text="Restart" onClick = {reset}/>
+      <Button text="+" onClick={increment} className="button-bigger" />
+      <Button text="-" onClick={decrement} className="button-bigger" />
+      {lapsNumber > 0 && <AverageTime time={Math.round(time / lapsNumber)} />}
+      <Button text={running ? "Pause" : "Start"} onClick={toggleRunning} />
+      <Button text="Restart" onClick={reset} />
     </div>
   );
 }

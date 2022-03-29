@@ -1,14 +1,28 @@
-p.teste {
+p.laps-number {
   font-size: 64px;
+  font-weight: bold;
   span {
-    font-size: 288px;
+    font-size: 204px;
   }
 }
 
 button {
   background-color: #f9f9f9;
   border: 1px solid black;
-  font-size: 18;
+  font-size: 18px;
   padding: 22px;
   margin: 8px;
+}
+
+.button-bigger {
+  font-size: 144px;
+  font-weight: bold;
+  line-height: 102px;
+}
+
+p.average-time {
+  span {
+    font-size: 64px;
+    font-weight: bold;
+  }
 }
